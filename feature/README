@@ -1,0 +1,9 @@
+本目录负责生成用户、监测点id、广告活动id和浏览器的特征，并汇总为训练数据和初版的测试数据。输入为原始数据train.data，输出结果存放在HDFS上。
+
+1.对于用户、监测点id、广告活动id和浏览器的特征，只需要到对应目录user、spid、caid、browser目录下执行sh run_job_train.sh即可。
+
+2.我们根据滑动窗口设置可以得到8份训练数据。在执行命令前，我们需要得到每份训练数据对应的用户、监测点id、广告活动id和浏览器的特征：从hdfs里下载1中生成的数据即可，依次修改test.py中file_name变量为user、spid、caid和browser然后运行python test.py即可。
+  
+  对于生产训练数据，需要到union目录下执行sh run_job_train.sh。
+  对于生产初版测试数据，需要到union目录下执行sh run_job_test.sh。
+
